@@ -43674,8 +43674,6 @@ var Body = function (_Component) {
           table = _this$props3.table,
           readonly = _this$props3.readonly,
           actions = _this$props3.actions,
-          scrollLeft = _this$props3.scrollLeft,
-          tableContainer = _this$props3.tableContainer,
           removeGroup = _this$props3.removeGroup;
 
       var rowId = _this.getRowId(row);
@@ -43700,13 +43698,7 @@ var Body = function (_Component) {
         },
         _this.state.dragRowId === rowId && _react2.default.createElement(
           'div',
-          {
-            className: 'row-image-dropzone',
-            style: {
-              width: tableContainer ? tableContainer.offsetWidth - 6 : '100%',
-              left: scrollLeft
-            }
-          },
+          { className: 'row-image-dropzone' },
           '\u041F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0443 \u0432 \u044D\u0442\u0443 \u043E\u0431\u043B\u0430\u0441\u0442\u044C'
         ),
         (0, _keys2.default)(row).map(function (cell, index) {
@@ -43753,7 +43745,7 @@ var Body = function (_Component) {
           popupAlign: {
             points: ['cl', 'cl'],
             destroyPopupOnHide: true,
-            offset: [-12 + scrollLeft, 0],
+            offset: [-12, 0],
             overflow: {
               adjustX: false,
               adjustY: false
@@ -43789,7 +43781,6 @@ Body.propTypes = {
   placeholder: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   isTouchDevice: _propTypes2.default.bool,
-  scrollLeft: _propTypes2.default.number,
   table: _propTypes2.default.shape({
     checked: _propTypes2.default.arrayOf(_propTypes2.default.number),
     focus: _propTypes2.default.shape({
@@ -45084,11 +45075,7 @@ var Table = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Table.__proto__ || (0, _getPrototypeOf2.default)(Table)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      scrollLeft: 0
-    }, _this.handleTableScroll = function () {
-      _this.setState({ scrollLeft: _this.$node.scrollLeft });
-    }, _this.handleKeyDown = function (event) {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Table.__proto__ || (0, _getPrototypeOf2.default)(Table)).call.apply(_ref, [this].concat(args))), _this), _this.handleKeyDown = function (event) {
       var _this$props = _this.props,
           edit = _this$props.edit,
           history = _this$props.history,
@@ -45126,11 +45113,6 @@ var Table = function (_Component) {
   }
 
   (0, _createClass3.default)(Table, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.$node.addEventListener('scroll', this.handleTableScroll, false);
-    }
-  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       var pastedData = nextProps.pastedData,
@@ -45148,11 +45130,6 @@ var Table = function (_Component) {
       return !(0, _isEqual3.default)(this.props, nextProps) || !(0, _isEqual3.default)(this.state, nextState);
     }
   }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.$node.removeEventListener('scroll', this.handleTableScroll, false);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -45167,7 +45144,6 @@ var Table = function (_Component) {
           placeholder = _props.placeholder,
           readonly = _props.readonly,
           tableContainer = _props.tableContainer;
-      var scrollLeft = this.state.scrollLeft;
 
 
       return _react2.default.createElement(
@@ -45183,10 +45159,7 @@ var Table = function (_Component) {
         table.isLoaded ? _react2.default.createElement(
           'div',
           {
-            className: b('wrapper'),
-            style: {
-              width: this.$node.clientWidth + scrollLeft
-            }
+            className: b('wrapper')
           },
           _react2.default.createElement(
             'div',
@@ -45205,7 +45178,6 @@ var Table = function (_Component) {
             placeholder: placeholder,
             actions: actions,
             $rootNode: this.$node,
-            scrollLeft: scrollLeft,
             readonly: readonly,
             isTouchDevice: this.props.isTouchDevice,
             tableContainer: tableContainer
