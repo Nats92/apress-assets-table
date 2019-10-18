@@ -1382,7 +1382,7 @@ li.rc-select-dropdown-menu-item-divider {
     user-select: none;
     font-size: 12px;
     color: #1f2532;
-    height: 80px;
+    min-height: 80px;
     box-sizing: border-box;
     padding: 10px 20px;
     text-align: left;
@@ -1611,7 +1611,6 @@ li.rc-select-dropdown-menu-item-divider {
   .e-table-cell-text {
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 50px;
     user-select: text; }
     .e-table-cell-text ~ .cke, .e-table-cell-text.is-edit {
       font-size: 14px;
@@ -1889,7 +1888,7 @@ li.rc-select-dropdown-menu-item-divider {
     height: 60px; }
   .e-table-cell {
     padding: 20px;
-    height: 100px; }
+    min-height: 100px; }
     .e-table-cell.is-check {
       padding: 20px 14px 20px 30px; }
   .e-table-body {
@@ -2203,7 +2202,6 @@ li.rc-select-dropdown-menu-item-divider {
   .e-tree-item {
     transition: background .5s;
     background: #fff;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
@@ -2211,9 +2209,8 @@ li.rc-select-dropdown-menu-item-divider {
     box-sizing: border-box;
     border-bottom: solid 1px #e0e0e0;
     font-size: 12px;
-    line-height: 34px;
     font-weight: bold;
-    padding: 0 70px 0 30px; }
+    padding: 8px 70px 8px 30px; }
     .e-tree-item:hover {
       background: #f8f8f8; }
       .e-tree-item:hover .e-tree-settings {
@@ -2249,12 +2246,9 @@ li.rc-select-dropdown-menu-item-divider {
     .e-tree-item.is-center > .e-tree-drag:before {
       border: solid 2px #000; }
   .e-tree-item-title {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     max-width: 210px;
-    vertical-align: top; }
+    vertical-align: top;
+    height: auto; }
   .e-tree-item-wrapper:last-child .e-tree-item:last-child {
     border: 0; }
   .e-tree-arrow {

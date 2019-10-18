@@ -11386,6 +11386,7 @@ var TextCellEditor = function (_Component) {
           maxLen = _props.maxLen,
           handlerEdit = _props.handlerEdit,
           isTouchDevice = _props.isTouchDevice;
+      var value = this.state.value;
 
 
       return _react2.default.createElement(
@@ -11394,14 +11395,18 @@ var TextCellEditor = function (_Component) {
           'data-charactersLeft': this.getCharactersCountLeft(),
           className: b('cell-text').is({ edit: isEdit })
         },
-        _react2.default.createElement('textarea', (0, _extends3.default)({
+        isEdit ? _react2.default.createElement('textarea', (0, _extends3.default)({
           ref: function ref(elem) {
             return elem && isEdit && elem.focus();
           },
           maxLength: maxLen,
           readOnly: !isEdit,
-          value: this.state.value
-        }, this.getEventHandlers())),
+          value: value
+        }, this.getEventHandlers())) : _react2.default.createElement(
+          'div',
+          null,
+          value
+        ),
         isEdit && isTouchDevice && _react2.default.createElement(_EditControlPanel2.default, {
           onSave: this.save,
           onClose: function onClose() {
@@ -43532,7 +43537,6 @@ var TextCell = function (_Component) {
 
       var _props = this.props,
           cell = _props.cell,
-          handleCellClick = _props.handleCellClick,
           handleSelection = _props.handleSelection,
           handleStartSelection = _props.handleStartSelection,
           handleEndSelection = _props.handleEndSelection,
@@ -43594,7 +43598,6 @@ var TextCell = function (_Component) {
           }),
           title: readonly && cellText,
           tabIndex: -1,
-          onClick: binder && handleCellClick,
           onDoubleClick: function onDoubleClick() {
             return binder && _this2.handlerEdit(true);
           },
@@ -43662,7 +43665,6 @@ TextCell.propTypes = {
     name: _propTypes2.default.string,
     placeholder: _propTypes2.default.string
   }),
-  handleCellClick: _propTypes2.default.func,
   handleSelection: _propTypes2.default.func,
   handleStartSelection: _propTypes2.default.func,
   handleEndSelection: _propTypes2.default.func,
