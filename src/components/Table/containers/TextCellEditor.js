@@ -60,19 +60,23 @@ class TextCellEditor extends Component {
 
   render() {
     const {isEdit, maxLen, handlerEdit, isTouchDevice} = this.props;
+    const {value} = this.state;
 
     return (
       <div
         data-charactersLeft={this.getCharactersCountLeft()}
         className={b('cell-text').is({edit: isEdit})}
       >
-        <textarea
-          ref={elem => elem && isEdit && elem.focus()}
-          maxLength={maxLen}
-          readOnly={!isEdit}
-          value={this.state.value}
-          {...this.getEventHandlers()}
-        />
+        { isEdit
+          ? <textarea
+            ref={elem => elem && isEdit && elem.focus()}
+            maxLength={maxLen}
+            readOnly={!isEdit}
+            value={value}
+            {...this.getEventHandlers()}
+          />
+          : <div>{value}</div>
+        }
         {isEdit && isTouchDevice &&
           <EditControlPanel
             onSave={this.save}

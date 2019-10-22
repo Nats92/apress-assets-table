@@ -38,7 +38,6 @@ class TextCell extends Component {
       name: PropTypes.string,
       placeholder: PropTypes.string
     }),
-    handleCellClick: PropTypes.func,
     handleSelection: PropTypes.func,
     handleStartSelection: PropTypes.func,
     handleEndSelection: PropTypes.func,
@@ -115,7 +114,7 @@ class TextCell extends Component {
   };
 
   render() {
-    const {cell, handleCellClick, handleSelection, handleStartSelection, handleEndSelection, handleDrag} = this.props;
+    const {cell, handleSelection, handleStartSelection, handleEndSelection, handleDrag} = this.props;
     const {config, data, name, placeholder, isFocus, classMix, isSelected, isDragged, isLast, readonly, isTouchDevice} = cell;
     const cellText = this.state.text;
     const binder = data.binder;
@@ -161,7 +160,6 @@ class TextCell extends Component {
         }
         title={readonly && cellText}
         tabIndex={-1}
-        onClick={binder && handleCellClick}
         onDoubleClick={() => binder && this.handlerEdit(true)}
         onKeyDown={binder && this.handleKeyPress}
         onMouseEnter={binder && handleSelection}

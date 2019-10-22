@@ -28,7 +28,7 @@
     }
   }
   &-item {
-    transition: background .5s; background: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: relative; cursor: pointer; box-sizing: border-box; border-bottom: solid 1px #e0e0e0; font-size: 12px; line-height: 34px; font-weight: bold; padding: 0 70px 0 30px;
+    transition: background .5s; background: #fff; overflow: hidden; text-overflow: ellipsis; position: relative; cursor: pointer; box-sizing: border-box; border-bottom: solid 1px #e0e0e0; font-size: 12px; font-weight: bold; padding: 8px 70px 8px 30px;
     &:hover {
       background: #f8f8f8;
       .e-tree-settings { visibility: visible; }
@@ -49,7 +49,7 @@
     &.is-bottom > .e-tree-drag:before { border-bottom: solid 2px #000; border-top: 0; }
     &.is-center > .e-tree-drag:before { border: solid 2px #000; }
   }
-  &-item-title { display: inline-block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 210px; vertical-align: top; }
+  &-item-title { max-width: 210px; vertical-align: top; height: auto; }
   &-item-wrapper:last-child .e-tree-item:last-child { border: 0; }
   &-arrow {
     position: absolute; left: 0; top: 0; width: 30px; height: 34px; transition: transform .5s;
