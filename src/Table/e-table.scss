@@ -4,8 +4,9 @@
 
 .e-table {
   $root: &;
-  box-sizing: border-box; border: 1px solid #e0e0e0; height: 100%; overflow-x: auto; overflow-y: hidden;
+  box-sizing: border-box;
   &-wrapper { min-width: 100%; position: relative; height: 100%; display: inline-block; }
+  &-header { position: sticky; top: 0px; left: 0; z-index: 2; }
   &-header-cell {
     box-sizing: border-box; padding: 0 20px; font: 300 13px/1 'OpenSans'; text-align: left; color: #1f2532;
   }
@@ -25,11 +26,11 @@
     &.is-checked { background: rgba(163, 189, 73, .11); }
     &.is-new { background: #f3fbff; }
     .row-image-dropzone {
-      display: flex; position: absolute; height: 100%; width: 896px; align-items: center; justify-content: center; background: rgba(255, 255, 255, .92); z-index: 40; left: 0; border: 2px dashed #028dd8; color: #1f2532; font-size: 14px;
+      display: flex; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; background: rgba(255, 255, 255, .92); z-index: 40; left: 0; border: 2px dashed #028dd8; color: #1f2532; font-size: 14px; box-sizing: border-box;
       &:before { @include cloud-upload-icon(#61656f); content: ''; display: block; width: 32px; height: 32px; margin-right: 25px; }
     }
   }
-  &-body { display: block; overflow-y: auto; overflow-x: hidden; width: 100%; height: calc(100% - 40px); }
+  &-body { display: block; height: calc(100% - 40px); }
   &-cell {
     cursor: pointer; outline: none; user-select: none; font-size: 12px; color: #1f2532; height: 80px; box-sizing: border-box; padding: 10px 20px; text-align: left; position: relative; display: flex; align-items: center;
     &:before { border: 1px solid rgba(255, 255, 255, 0); content: ''; transition: border .5s; z-index: 1; position: absolute; top: 0px; left: 0px; right: 0px; bottom: -2px; }
