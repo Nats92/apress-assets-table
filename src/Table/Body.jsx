@@ -8,7 +8,7 @@ import 'rc-trigger/assets/index.css';
 import Price from './Price';
 import Exists from './Exists';
 import CheckRelatedProducts from './CheckRelatedProducts';
-import {SelectCellContainer} from '../components/Table/containers';
+import {SelectCellContainer, PopupProportiesCellContainer} from '../components/Table/containers';
 import {
   block,
   inRange,
@@ -126,6 +126,16 @@ class Body extends Component {
     }
   };
 
+  returnCellTextProporties = (dataRow) => {
+    const str = [];
+    Object.keys(dataRow.data.common).forEach((item) => {
+      if (app.config.productPropertiesMeasure[item]) {
+        str.push(`${dataRow.data.common[item]}(${app.config.productPropertiesMeasure[item].measure})`);
+      }
+    });
+    return str.join(' x ');
+  }
+
   renderCell = (row, rowId, cell, columnIndex, rowIndex) => {
     const {placeholder, config, actions, table, readonly, isTouchDevice} = this.props;
     const {focus, selected} = table;
@@ -191,6 +201,12 @@ class Body extends Component {
           option.value === dataRow.data.common.enabled
         )}
         handleSelect={actions.setTraitFiltersDisplaying}
+      />,
+      product_properties_popup: <PopupProportiesCellContainer
+        key={key}
+        cell={dataRow}
+        activeOption={this.returnCellTextProporties(dataRow)}
+        handleSelect={actions.setProductProportiesDisplaying}
       />
     };
 
