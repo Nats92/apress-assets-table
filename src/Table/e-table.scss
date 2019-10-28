@@ -32,7 +32,7 @@
   }
   &-body { display: block; height: calc(100% - 40px); }
   &-cell {
-    cursor: pointer; outline: none; user-select: none; font-size: 12px; color: #1f2532; min-height: 80px; box-sizing: border-box; padding: 10px 20px; text-align: left; position: relative; display: flex; align-items: center;
+    cursor: pointer; outline: none; user-select: none; font-size: 12px; color: #1f2532; min-height: 80px; box-sizing: border-box; padding: 10px 20px; text-align: left; position: relative; display: flex; align-items: center; overflow-wrap: break-word;
     &:before { border: 1px solid rgba(255, 255, 255, 0); content: ''; transition: border .5s; z-index: 1; position: absolute; top: 0px; left: 0px; right: 0px; bottom: -2px; }
     &:hover {
       &:before { pointer-events: none; content: ''; border: solid 1px #e3b61c; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
@@ -73,7 +73,7 @@
     &.is-description,
     &.is-description-for-facets { @include cell-width(270px); }
     &.is-html-block,
-    &.is-detailed-description,
+    &.is-detailed-description { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; max-width: 280px; min-width: 280px; width: 280px; }
     &.is-detailed-description-for-facets {  @include cell-width(280px); }
     &.is-h1 { @include cell-width(180px); }
     &.is-name { @include cell-width(200px); }
@@ -81,7 +81,7 @@
     &.is-photo { @include cell-width(100px); }
     &.is-product-group { @include cell-width(200px); padding: 0; cursor: default; }
     &.is-tag-title { @include cell-width(240px); }
-    &.is-url { @include cell-width(170px); }
+    &.is-url { @include cell-width(170px); overflow-wrap: break-word; }
     &.is-price { @include cell-width(155px); }
     &.is-exists { @include cell-width(110px); }
     &.is-check-related-products { @include cell-width(60px); }
