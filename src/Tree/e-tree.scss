@@ -8,21 +8,21 @@
       max-height: 0; transition: max-height .5s cubic-bezier(0.45, 0.05, 0.55, 0.95); overflow: hidden;
       .e-tree-item-title { max-width: 180px; }
       .e-tree-item {
-        padding: 0 0 0 60px; font-weight: normal; border-bottom: solid 1px #e0e0e0 !important;
+        padding: 8px 0 8px 60px; font-weight: normal; border-bottom: solid 1px #e0e0e0 !important;
         &:before { position: absolute; content: ''; width: 10px; height: 10px; box-sizing: border-box; border-bottom: solid 1px #e0e0e0; border-left: solid 1px #e0e0e0; left: 40px; top: 11px; }
       }
     }
     .e-tree-list .e-tree-list {
       .e-tree-item-title { max-width: 150px; }
       .e-tree-item {
-        padding: 0 0 0 90px;
+        padding: 8px 0 8px 90px;
         &:before { left: 70px; }
       }
     }
     .e-tree-list .e-tree-list .e-tree-list {
       .e-tree-item-title { max-width: 120px; }
       .e-tree-item {
-        padding: 0 0 0 120px;
+        padding: 8px 0 8px 120px;
         &:before { left: 100px; }
       }
     }
@@ -49,7 +49,7 @@
     &.is-bottom > .e-tree-drag:before { border-bottom: solid 2px #000; border-top: 0; }
     &.is-center > .e-tree-drag:before { border: solid 2px #000; }
   }
-  &-item-title { max-width: 210px; vertical-align: top; height: auto; }
+  &-item-title { max-width: 210px; vertical-align: top; height: auto; overflow-wrap: break-word; }
   &-item-wrapper:last-child .e-tree-item:last-child { border: 0; }
   &-arrow {
     position: absolute; left: 0; top: 0; width: 30px; height: 34px; transition: transform .5s;
