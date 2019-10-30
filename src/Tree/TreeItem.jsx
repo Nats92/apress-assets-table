@@ -183,10 +183,10 @@ class TreeItem extends Component {
         data-count={`(${count})`}
         onClick={() => this.hendlerClickSelected()}
       >
-        <span
-          className={expandable ? b('arrow') : ''}
+        { expandable && <span
+          className={b('arrow')}
           onClick={e => this.hendlerClickExpanded(e)}
-        />
+        /> }
         <span className={b('item-title')}>{name}</span>
         {hasSettingsNode && (!hover || (hover && !hover.id)) && this.renderSettingsMenu()}
         <span className={b('drag')} />
