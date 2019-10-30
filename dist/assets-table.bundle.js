@@ -44771,8 +44771,8 @@ var TreeItem = function (_Component) {
             return _this2.hendlerClickSelected();
           }
         },
-        _import.React.createElement('span', {
-          className: expandable ? (0, _import.b)('arrow') : '',
+        expandable && _import.React.createElement('span', {
+          className: (0, _import.b)('arrow'),
           onClick: function onClick(e) {
             return _this2.hendlerClickExpanded(e);
           }
