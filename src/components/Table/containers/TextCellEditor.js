@@ -75,7 +75,7 @@ class TextCellEditor extends Component {
             value={value}
             {...this.getEventHandlers()}
           />
-          : <div>{value}</div>
+          : <div className={b('cell-text-output')}>{value}</div>
         }
         {isEdit && isTouchDevice &&
           <EditControlPanel

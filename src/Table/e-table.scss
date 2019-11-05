@@ -70,11 +70,31 @@
   &-header-cell,
   &-cell {
     &.is-check { @include cell-width(60px); padding: 10px 14px 10px 30px; cursor: default; }
-    &.is-description,
-    &.is-description-for-facets { @include cell-width(270px); }
-    &.is-html-block,
-    &.is-detailed-description { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; max-width: 280px; min-width: 280px; width: 280px; }
-    &.is-detailed-description-for-facets {  @include cell-width(280px); }
+    &.is-description-for-facets {
+      @include cell-width(270px);
+      .e-table-cell-text {
+        .e-table-cell-text-output { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; }
+      }
+    }
+    &.is-html-block {
+      @include cell-width(270px);
+      .e-table-cell-text {
+        .e-table-cell-text-output { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; }
+      }
+    }
+    &.is-detailed-description {
+      @include cell-width(280px);
+      .e-table-cell-text {
+        .e-table-cell-text-output{ white-space: nowrap; text-overflow: ellipsis; overflow-wrap: break-word; overflow: hidden; }
+      }
+    }
+    &.is-detailed-description-for-facets {
+      @include cell-width(280px);
+      .e-table-cell-text  {
+        .e-table-cell-text-output { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; }
+      }
+    }
+    &.is-description { @include cell-width(270px); }
     &.is-h1 { @include cell-width(180px); }
     &.is-name { @include cell-width(200px); }
     &.is-page-description {  @include cell-width(270px); }

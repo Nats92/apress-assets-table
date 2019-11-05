@@ -12776,7 +12776,7 @@ var TextCellEditor = function (_Component) {
           value: value
         }, this.getEventHandlers())) : _react2.default.createElement(
           'div',
-          null,
+          { className: b('cell-text-output') },
           value
         ),
         isEdit && isTouchDevice && _react2.default.createElement(_EditControlPanel2.default, {
