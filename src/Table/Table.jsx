@@ -47,14 +47,6 @@ class Table extends Component {
     isTouchDevice: false
   };
 
-  state = {
-    scrollLeft: 0,
-  };
-
-  componentDidMount() {
-    this.$node.addEventListener('scroll', this.handleTableScroll, false);
-  }
-
   componentWillReceiveProps(nextProps) {
     const {pastedData, config, edit} = nextProps;
 
@@ -66,14 +58,6 @@ class Table extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return !_isEqual(this.props, nextProps) || !_isEqual(this.state, nextState);
   }
-
-  componentWillUnmount() {
-    this.$node.removeEventListener('scroll', this.handleTableScroll, false);
-  }
-
-  handleTableScroll = () => {
-    this.setState({scrollLeft: this.$node.scrollLeft});
-  };
 
   handleKeyDown = (event) => {
     const {edit, history, dispatch} = this.props;
@@ -109,7 +93,6 @@ class Table extends Component {
 
   render() {
     const {table, selectFilter, selectSort, actions, countRow, config, placeholder, readonly, tableContainer} = this.props;
-    const {scrollLeft} = this.state;
 
     return (
       <div
@@ -121,9 +104,6 @@ class Table extends Component {
         {table.isLoaded ?
           <div
             className={b('wrapper')}
-            style={{
-              width: this.$node.clientWidth + scrollLeft
-            }}
           >
             <div className={b('header')}>
               <Header
@@ -140,7 +120,6 @@ class Table extends Component {
               placeholder={placeholder}
               actions={actions}
               $rootNode={this.$node}
-              scrollLeft={scrollLeft}
               readonly={readonly}
               isTouchDevice={this.props.isTouchDevice}
               tableContainer={tableContainer}

@@ -1391,16 +1391,17 @@ li.rc-select-dropdown-menu-item-divider {
     transform: rotate(360deg); } }
 
 .e-table {
-  box-sizing: border-box;
-  border: 1px solid #e0e0e0;
-  height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden; }
+  box-sizing: border-box; }
   .e-table-wrapper {
     min-width: 100%;
     position: relative;
     height: 100%;
     display: inline-block; }
+  .e-table-header {
+    position: sticky;
+    top: 0px;
+    left: 0;
+    z-index: 2; }
   .e-table-header-cell {
     box-sizing: border-box;
     padding: 0 20px;
@@ -1441,7 +1442,7 @@ li.rc-select-dropdown-menu-item-divider {
       display: flex;
       position: absolute;
       height: 100%;
-      width: 896px;
+      width: 100%;
       align-items: center;
       justify-content: center;
       background: rgba(255, 255, 255, 0.92);
@@ -1449,7 +1450,8 @@ li.rc-select-dropdown-menu-item-divider {
       left: 0;
       border: 2px dashed #028dd8;
       color: #1f2532;
-      font-size: 14px; }
+      font-size: 14px;
+      box-sizing: border-box; }
       .e-table-body-tr .row-image-dropzone:before {
         background: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzkgMjkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMikiIGZpbGw9IiM2MTY1NkYiIGQ9Ik0yNS43MTQgMTQuNzg2YzAgLjE4LS4wOC4zNDEtLjIuNDgybC03LjA1MiA3LjA1MUEuNjcuNjcgMCAwIDEgMTggMjIuNWEuNjM3LjYzNyAwIDAgMS0uNDYyLS4xOGwtNy4wNzItNy4wNzJhLjY3LjY3IDAgMCAxLS4xOC0uNDYyYzAtLjM0Mi4yODEtLjY0My42NDMtLjY0M2g0LjVWNy4wN2MwLS4zNDEuMy0uNjQyLjY0Mi0uNjQyaDMuODU4Yy4zNDEgMCAuNjQyLjMuNjQyLjY0MnY3LjA3Mmg0LjVjLjM2MiAwIC42NDMuMjgxLjY0My42NDN6bTEyLjg1NyA0LjVhNy43MzEgNy43MzEgMCAwIDAtNS45NjYtNy41MTRBNS4wMzQgNS4wMzQgMCAwIDAgMzMuNDI5IDlhNS4xNTMgNS4xNTMgMCAwIDAtNS4xNDMtNS4xNDNjLTEuMjI2IDAtMi40MTEuNDQyLTMuMzM1IDEuMjQ2YTEwLjMwMyAxMC4zMDMgMCAwIDAtOS41MjItNi4zODlBMTAuMjggMTAuMjggMCAwIDAgNS4xNDMgOWMwIC4yODEuMDIuNTYzLjA0Ljg2NEE4Ljk3NSA4Ljk3NSAwIDAgMCAwIDE4YzAgNC45NjIgNC4wMzggOSA5IDloMjEuODU3YTcuNzE2IDcuNzE2IDAgMCAwIDcuNzE0LTcuNzE0eiIvPjwvc3ZnPg==") 50%/contain no-repeat;
         content: '';
@@ -1459,9 +1461,6 @@ li.rc-select-dropdown-menu-item-divider {
         margin-right: 25px; }
   .e-table-body {
     display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 100%;
     height: calc(100% - 40px); }
   .e-table-cell {
     cursor: pointer;
@@ -1469,13 +1468,14 @@ li.rc-select-dropdown-menu-item-divider {
     user-select: none;
     font-size: 12px;
     color: #1f2532;
-    height: 80px;
+    min-height: 80px;
     box-sizing: border-box;
     padding: 10px 20px;
     text-align: left;
     position: relative;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    overflow-wrap: break-word; }
     .e-table-cell:before {
       border: 1px solid rgba(255, 255, 255, 0);
       content: '';
@@ -1560,14 +1560,46 @@ li.rc-select-dropdown-menu-item-divider {
     width: 60px;
     padding: 10px 14px 10px 30px;
     cursor: default; }
-  .e-table-header-cell.is-description, .e-table-header-cell.is-description-for-facets, .e-table-cell.is-description, .e-table-cell.is-description-for-facets {
+  .e-table-header-cell.is-description-for-facets, .e-table-cell.is-description-for-facets {
     max-width: 270px;
     min-width: 270px;
     width: 270px; }
-  .e-table-header-cell.is-html-block, .e-table-header-cell.is-detailed-description, .e-table-header-cell.is-detailed-description-for-facets, .e-table-cell.is-html-block, .e-table-cell.is-detailed-description, .e-table-cell.is-detailed-description-for-facets {
+    .e-table-header-cell.is-description-for-facets .e-table-cell-text .e-table-cell-text-output, .e-table-cell.is-description-for-facets .e-table-cell-text .e-table-cell-text-output {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: break-word; }
+  .e-table-header-cell.is-html-block, .e-table-cell.is-html-block {
+    max-width: 270px;
+    min-width: 270px;
+    width: 270px; }
+    .e-table-header-cell.is-html-block .e-table-cell-text .e-table-cell-text-output, .e-table-cell.is-html-block .e-table-cell-text .e-table-cell-text-output {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: break-word; }
+  .e-table-header-cell.is-detailed-description, .e-table-cell.is-detailed-description {
     max-width: 280px;
     min-width: 280px;
     width: 280px; }
+    .e-table-header-cell.is-detailed-description .e-table-cell-text .e-table-cell-text-output, .e-table-cell.is-detailed-description .e-table-cell-text .e-table-cell-text-output {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-wrap: break-word;
+      overflow: hidden; }
+  .e-table-header-cell.is-detailed-description-for-facets, .e-table-cell.is-detailed-description-for-facets {
+    max-width: 280px;
+    min-width: 280px;
+    width: 280px; }
+    .e-table-header-cell.is-detailed-description-for-facets .e-table-cell-text .e-table-cell-text-output, .e-table-cell.is-detailed-description-for-facets .e-table-cell-text .e-table-cell-text-output {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: break-word; }
+  .e-table-header-cell.is-description, .e-table-cell.is-description {
+    max-width: 270px;
+    min-width: 270px;
+    width: 270px; }
   .e-table-header-cell.is-h1, .e-table-cell.is-h1 {
     max-width: 180px;
     min-width: 180px;
@@ -1597,7 +1629,8 @@ li.rc-select-dropdown-menu-item-divider {
   .e-table-header-cell.is-url, .e-table-cell.is-url {
     max-width: 170px;
     min-width: 170px;
-    width: 170px; }
+    width: 170px;
+    overflow-wrap: break-word; }
   .e-table-header-cell.is-price, .e-table-cell.is-price {
     max-width: 155px;
     min-width: 155px;
@@ -1698,7 +1731,6 @@ li.rc-select-dropdown-menu-item-divider {
   .e-table-cell-text {
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 50px;
     user-select: text; }
     .e-table-cell-text ~ .cke, .e-table-cell-text.is-edit {
       font-size: 14px;
@@ -1976,7 +2008,7 @@ li.rc-select-dropdown-menu-item-divider {
     height: 60px; }
   .e-table-cell {
     padding: 20px;
-    height: 100px; }
+    min-height: 100px; }
     .e-table-cell.is-check {
       padding: 20px 14px 20px 30px; }
   .e-table-body {
@@ -2262,7 +2294,7 @@ li.rc-select-dropdown-menu-item-divider {
       .e-tree-list .e-tree-list .e-tree-item-title {
         max-width: 180px; }
       .e-tree-list .e-tree-list .e-tree-item {
-        padding: 0 0 0 60px;
+        padding: 8px 0 8px 60px;
         font-weight: normal;
         border-bottom: solid 1px #e0e0e0 !important; }
         .e-tree-list .e-tree-list .e-tree-item:before {
@@ -2278,19 +2310,18 @@ li.rc-select-dropdown-menu-item-divider {
     .e-tree-list .e-tree-list .e-tree-list .e-tree-item-title {
       max-width: 150px; }
     .e-tree-list .e-tree-list .e-tree-list .e-tree-item {
-      padding: 0 0 0 90px; }
+      padding: 8px 0 8px 90px; }
       .e-tree-list .e-tree-list .e-tree-list .e-tree-item:before {
         left: 70px; }
     .e-tree-list .e-tree-list .e-tree-list .e-tree-list .e-tree-item-title {
       max-width: 120px; }
     .e-tree-list .e-tree-list .e-tree-list .e-tree-list .e-tree-item {
-      padding: 0 0 0 120px; }
+      padding: 8px 0 8px 120px; }
       .e-tree-list .e-tree-list .e-tree-list .e-tree-list .e-tree-item:before {
         left: 100px; }
   .e-tree-item {
     transition: background .5s;
     background: #fff;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
@@ -2298,9 +2329,8 @@ li.rc-select-dropdown-menu-item-divider {
     box-sizing: border-box;
     border-bottom: solid 1px #e0e0e0;
     font-size: 12px;
-    line-height: 34px;
     font-weight: bold;
-    padding: 0 70px 0 30px; }
+    padding: 8px 70px 8px 30px; }
     .e-tree-item:hover {
       background: #f8f8f8; }
       .e-tree-item:hover .e-tree-settings {
@@ -2336,12 +2366,10 @@ li.rc-select-dropdown-menu-item-divider {
     .e-tree-item.is-center > .e-tree-drag:before {
       border: solid 2px #000; }
   .e-tree-item-title {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     max-width: 210px;
-    vertical-align: top; }
+    vertical-align: top;
+    height: auto;
+    overflow-wrap: break-word; }
   .e-tree-item-wrapper:last-child .e-tree-item:last-child {
     border: 0; }
   .e-tree-arrow {

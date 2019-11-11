@@ -40,7 +40,6 @@ class Body extends Component {
     placeholder: PropTypes.object,
     readonly: PropTypes.bool,
     isTouchDevice: PropTypes.bool,
-    scrollLeft: PropTypes.number,
     table: PropTypes.shape({
       checked: PropTypes.arrayOf(PropTypes.number),
       focus: PropTypes.shape({
@@ -215,7 +214,7 @@ class Body extends Component {
   };
 
   renderRow = (row, rowIndex) => {
-    const {table, readonly, actions, scrollLeft, tableContainer, removeGroup} = this.props;
+    const {table, readonly, actions, removeGroup} = this.props;
     const rowId = this.getRowId(row);
     const rowHtml = (
       <Dropzone
@@ -232,13 +231,7 @@ class Body extends Component {
         disableClick
       >
         {this.state.dragRowId === rowId &&
-          <div
-            className='row-image-dropzone'
-            style={{
-              width: tableContainer ? tableContainer.offsetWidth - 6 : '100%',
-              left: scrollLeft
-            }}
-          >
+          <div className='row-image-dropzone'>
             Перетащите картинку в эту область
           </div>
         }
@@ -282,7 +275,7 @@ class Body extends Component {
         popupAlign={{
           points: ['cl', 'cl'],
           destroyPopupOnHide: true,
-          offset: [-12 + scrollLeft, 0],
+          offset: [-12, 0],
           overflow: {
             adjustX: false,
             adjustY: false,
