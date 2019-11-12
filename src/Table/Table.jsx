@@ -6,7 +6,7 @@ import _isEqual from 'lodash/isEqual';
 import Header from './Header';
 import Body from './Body';
 import {block} from '../utils';
-import './e-table.scss';
+import './styles/e-table.scss';
 import {
   focusNext,
   focusPrev,

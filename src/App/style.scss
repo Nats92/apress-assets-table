@@ -1,17 +1,50 @@
-body { font-family: 'OpenSans'; margin: 0; }
-a, a:visited { color: #028dd8; }
-a:hover { color: #00a6ff; }
-button { outline: none; }
+body {
+  font-family: 'OpenSans';
+  margin: 0;
+}
+a, a:visited {
+  color: #028dd8;
+}
+a:hover {
+  color: #00a6ff;
+}
+button {
+  outline: none;
+}
 
 .example {
   &-wrapper {
     margin: 50px;
-    &-table { width: 1570px; height: 448px; overflow: auto }
-    &-tree { width: 310px; height: 500px; margin: 50px; }
+    &-table {
+      width: 1570px;
+      height: 448px;
+      overflow: auto
+    }
+    &-tree {
+      width: 310px;
+      height: 500px;
+      margin: 50px;
+    }
   }
-  &-wrapper-help { position: relative; width: 100%; }
-  &-test-box { border: 1px solid black; }
-  &-table { width: 1570px; height: 748px; margin: 50px; }
-  &-float-panel { width: 310px; height: 200px; margin: 50px; }
-  &-just-inline-block { display: inline-block; vertical-align: middle; }
+  &-wrapper-help {
+    position: relative;
+    width: 100%;
+  }
+  &-test-box {
+    border: 1px solid black;
+  }
+  &-table {
+    width: 1570px;
+    height: 748px;
+    margin: 50px;
+  }
+  &-float-panel {
+    width: 310px;
+    height: 200px;
+    margin: 50px;
+  }
+  &-just-inline-block {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
