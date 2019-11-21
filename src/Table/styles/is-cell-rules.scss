@@ -1,0 +1,90 @@
+@mixin is-cell-rules() {
+  &-header-cell,
+  &-cell {
+    &.is-check {
+      @include cell-width(60px);
+      padding: 10px 14px 10px 30px;
+      cursor: default;
+    }
+    &.is-description-for-facets {
+      @include cell-width(270px);
+      .e-table-cell-text {
+        .e-table-cell-text-output {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          overflow-wrap: break-word;
+        }
+      }
+    }
+    &.is-html-block {
+      @include cell-width(270px);
+      .e-table-cell-text {
+        .e-table-cell-text-output {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          overflow-wrap: break-word;
+        }
+      }
+    }
+    &.is-detailed-description {
+      @include cell-width(280px);
+      .e-table-cell-text {
+        .e-table-cell-text-output{
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow-wrap: break-word;
+          overflow: hidden;
+        }
+      }
+    }
+    &.is-detailed-description-for-facets {
+      @include cell-width(280px);
+      .e-table-cell-text  {
+        .e-table-cell-text-output {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          overflow-wrap: break-word;
+        }
+      }
+    }
+    &.is-description {
+      @include cell-width(270px);
+    }
+    &.is-h1 {
+      @include cell-width(180px);
+    }
+    &.is-name {
+      @include cell-width(200px);
+    }
+    &.is-page-description {
+      @include cell-width(270px);
+    }
+    &.is-photo {
+      @include cell-width(100px);
+    }
+    &.is-product-group {
+      @include cell-width(200px);
+      padding: 0;
+      cursor: default;
+    }
+    &.is-tag-title {
+      @include cell-width(240px);
+    }
+    &.is-url {
+      @include cell-width(170px);
+      overflow-wrap: break-word;
+    }
+    &.is-price {
+      @include cell-width(155px);
+    }
+    &.is-exists {
+      @include cell-width(110px);
+    }
+    &.is-check-related-products {
+      @include cell-width(60px);
+    }
+  }
+}

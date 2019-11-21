@@ -2,56 +2,159 @@
 @import '../styles/mixins/index';
 
 .e-actions-panel {
-  background: #fff; border: solid 1px #e0e0e0; font-size: 13px;
-  & * { box-sizing: border-box; }
-  &-section-1 { display: none; border-bottom: 1px solid #e0e0e0; padding: 0 10px 0 30px; align-items: center; height: 55px; }
-  &-section-2 { display: flex; height: 36px; }
+  background: #fff;
+  border: solid 1px #e0e0e0;
+  font-size: 13px;
+  & * {
+    box-sizing: border-box;
+  }
+  &-section-1 {
+    display: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 10px 0 30px;
+    align-items: center;
+    height: 55px;
+  }
+  &-section-2 {
+    display: flex;
+    height: 36px;
+  }
   &-breadcrumb-item {
-    text-decoration: none; font-size: 13px; color: #028dd8; font-weight: bold; cursor: pointer;
-    &:after { @include angle-double-right-icon(#1f2532); content: ''; width: 13px; height: 13px; display: inline-block; vertical-align: middle; margin: 0 20px; }
+    text-decoration: none;
+    font-size: 13px;
+    color: #028dd8;
+    font-weight: bold;
+    cursor: pointer;
+    &:after {
+      @include angle-double-right-icon(#1f2532);
+      content: '';
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 20px;
+    }
     &:last-child {
-      color: #1f2532; cursor: default;
-      &:after { display: none; }
+      color: #1f2532;
+      cursor: default;
+      &:after {
+        display: none;
+      }
     }
   }
-  &-last-actions-label { margin-right: 20px; white-space: nowrap; }
+  &-last-actions-label {
+    margin-right: 20px;
+    white-space: nowrap;
+  }
   &-button {
-    @include button; margin-right: 10px; width: 45px; height: 30px; border-radius: 3px; border: solid 1px #e0e0e0; text-indent: -99999px; transition: all 0.3s;
+    @include button;
+    margin-right: 10px;
+    width: 45px;
+    height: 30px;
+    border-radius: 3px;
+    border: solid 1px #e0e0e0;
+    text-indent: -99999px;
+    transition: all 0.3s;
     &.is-back {
-      @include mail-reply-icon(#e0e0e0); background-size: 16px 13px;
+      @include mail-reply-icon(#e0e0e0);
+      background-size: 16px 13px;
       &.is-active {
-        @include mail-reply-icon(#1f2532); border-color: #1f2532; background-size: 16px 13px;
-        &:hover { @include mail-reply-icon(#fff); background-size: 16px 13px; background-color: #1f2532; }
+        @include mail-reply-icon(#1f2532);
+        border-color: #1f2532;
+        background-size: 16px 13px;
+        &:hover {
+          @include mail-reply-icon(#fff);
+          background-size: 16px 13px;
+          background-color: #1f2532;
+        }
       }
     }
     &.is-next {
-      @include mail-forward-icon(#e0e0e0); background-size: 16px 13px;
+      @include mail-forward-icon(#e0e0e0);
+      background-size: 16px 13px;
       &.is-active {
-        @include mail-forward-icon(#1f2532); border-color: #1f2532; background-size: 16px 13px;
-        &:hover { @include mail-forward-icon(#fff); background-size: 16px 13px; background-color: #1f2532; }
+        @include mail-forward-icon(#1f2532);
+        border-color: #1f2532;
+        background-size: 16px 13px;
+        &:hover {
+          @include mail-forward-icon(#fff);
+          background-size: 16px 13px;
+          background-color: #1f2532;
+        }
       }
     }
   }
-  &-filter-title { margin-right: 20px; }
-  &-filter-box { padding-left: 20px; padding-right: 10px; border-left: 1px solid #e0e0e0; display: flex; width: 100%; align-items: center; }
-  &-last-actions-box { padding-right: 10px; display: flex; align-items: center; padding-left: 30px; flex: 0 0 0; -ms-flex: 1 0 auto;}
-  &-filter-item {
-    cursor: pointer; border-radius: 13px; background-color: #e0e0e0; padding: 0 40px 0 20px; height: 25px; line-height: 23px; transition: border-color 0.3s, background 0.3s; border: 1px solid #e0e0e0; white-space: nowrap; text-overflow: ellipsis; position: relative; display: block;
-    &:after { @include close-icon(#dc6263); content: ''; width: 12px; height: 12px; position: absolute; right: 15px; top: 6px; cursor: pointer; }
-    &:hover { border-color: #dc6263; background: #fff; }
+  &-filter-title {
+    margin-right: 20px;
   }
-  &-scroll-box { flex-grow: 333; }
+  &-filter-box {
+    padding-left: 20px;
+    padding-right: 10px;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  &-last-actions-box {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    flex: 0 0 0;
+    -ms-flex: 1 0 auto;
+  }
+  &-filter-item {
+    cursor: pointer;
+    border-radius: 13px;
+    background-color: #e0e0e0;
+    padding: 0 40px 0 20px;
+    height: 25px;
+    line-height: 23px;
+    transition: border-color 0.3s, background 0.3s;
+    border: 1px solid #e0e0e0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    display: block;
+    &:after {
+      @include close-icon(#dc6263);
+      content: '';
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      right: 15px;
+      top: 6px;
+      cursor: pointer;
+    }
+    &:hover {
+      border-color: #dc6263;
+      background: #fff;
+    }
+  }
+  &-scroll-box {
+    flex-grow: 333;
+  }
 
   @media (max-width: 1400px) {
-    &-last-actions-label { display: none; }
-    &-button:first-child { margin-left: 0; }
-    &-filter-title { display: none; }
+    &-last-actions-label {
+      display: none;
+    }
+    &-button:first-child {
+      margin-left: 0;
+    }
+    &-filter-title {
+      display: none;
+    }
   }
 }
 
 @media (min-height: 768px) {
   .e-actions-panel {
-    &-section-1 { display: flex; }
-    &-section-2 { height: 56px; }
+    &-section-1 {
+      display: flex;
+    }
+    &-section-2 {
+      height: 56px;
+    }
   }
 }

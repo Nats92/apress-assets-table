@@ -1,41 +1,106 @@
 @import '../styles/mixins/icons';
 
 .e-image-editor {
-  & img { max-width: 100%; max-height: 100%; }
+  & img {
+    max-width: 100%;
+    max-height: 100%;
+  }
   box-sizing: border-box;
   $root: &;
-  & * { box-sizing: border-box; }
-  &-upload-title { margin-bottom: 15px; font-size: 12px; }
-  &-choose { margin-bottom: 18px; }
+  & * {
+    box-sizing: border-box;
+  }
+  &-upload-title {
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+  &-choose {
+    margin-bottom: 18px;
+  }
   &-drop-zone {
-     height: 200px; background-color: #fff; border: dashed 2px #c1c1c1; display: flex; justify-content: center; align-items: center; cursor: pointer; margin-bottom: 10px;
-     &:hover { border-color: #028dd8; }
-     &.is-disabled {
-       opacity: .4; cursor: not-allowed;
-       &:hover { border-color: #c1c1c1; }
-     }
+    height: 200px;
+    background-color: #fff;
+    border: dashed 2px #c1c1c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    &:hover {
+      border-color: #028dd8;
+    }
+    &.is-disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      &:hover {
+        border-color: #c1c1c1;
+      }
+    }
   }
   &-message {
-    font-weight: 600; font-size: 14px; width: 200px; text-align: center; margin-top: 20px; line-height: 1.1;
-    &-link { color: #028dd8; text-decoration: underline; }
-    &:before { @include cloud-upload-icon(#61656f); content: ''; display: block; width: 42px; height: 36px; margin: 20px auto; }
+    font-weight: 600;
+    font-size: 14px;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.1;
+    &-link {
+      color: #028dd8;
+      text-decoration: underline;
+    }
+    &:before {
+      @include cloud-upload-icon(#61656f);
+      content: '';
+      display: block;
+      width: 42px;
+      height: 36px;
+      margin: 20px auto;
+    }
   }
-  &-preview-box { display: flex; }
-  &-error { color: #dc6263; margin-bottom: 20px; }
-  &-preloader.preloader { height: 140px; }
-  &-subtitle { margin-bottom: 20px; font-weight: normal; margin-top: 0; }
-  .url-field-wrapper { margin-top: 35px; }
-  .rc-dialog-footer { padding-top: 20px; }
+  &-preview-box {
+    display: flex;
+  }
+  &-error {
+    color: #dc6263;
+    margin-bottom: 20px;
+  }
+  &-preloader.preloader {
+    height: 140px;
+  }
+  &-subtitle {
+    margin-bottom: 20px;
+    font-weight: normal;
+    margin-top: 0;
+  }
+  .url-field-wrapper {
+    margin-top: 35px;
+  }
+  .rc-dialog-footer {
+    padding-top: 20px;
+  }
   .question-icon {
-    @include question-icon(); display: inline-block; width: 13px; height: 13px; margin-left: 5px; vertical-align: middle;
-    &:hover { cursor: pointer; }
-    &.is-active { @include question-icon(#028dd8); }
+    @include question-icon();
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-left: 5px;
+    vertical-align: middle;
+    &:hover {
+      cursor: pointer;
+    }
+    &.is-active {
+      @include question-icon(#028dd8);
+    }
   }
   @media (max-height: 768px) {
-    &-drop-zone { height: 100px; }
+    &-drop-zone {
+      height: 100px;
+    }
     &-message {
       margin-top: 0;
-      &:before { margin: 3px auto; }
+      &:before {
+        margin: 3px auto;
+      }
     }
   }
 }
@@ -49,7 +114,9 @@
   padding: 20px 15px;
 
   &:before,
-  &:after { border: 0; }
+  &:after {
+    border: 0;
+  }
 
   .e-dropdown-menu-menu-item {
     height: auto;
@@ -60,6 +127,9 @@
     font-size: 11px;
     color: #1f2532;
     padding: 0;
-    p { margin: 0; min-height: 1em; }
+    p {
+      margin: 0;
+      min-height: 1em;
+    }
   }
 }
